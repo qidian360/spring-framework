@@ -47,6 +47,10 @@ final class LogAdapter {
 
 	private static final LogApi logApi;
 
+	/**
+	 * @author cuishiying
+	 * 静态代码块中的代码会在类加载JVM时运行，且只被执行一次
+	 */
 	static {
 		if (isPresent(LOG4J_SPI)) {
 			if (isPresent(LOG4J_SLF4J_PROVIDER) && isPresent(SLF4J_SPI)) {
@@ -80,6 +84,7 @@ final class LogAdapter {
 
 
 	/**
+	 * 工厂方法
 	 * Create an actual {@link Log} instance for the selected API.
 	 * @param name the logger name
 	 */
@@ -146,6 +151,9 @@ final class LogAdapter {
 	}
 
 
+	/**
+	 * 告诉编译器忽略指定的警告，不用在编译完成后出现警告信息
+	 */
 	@SuppressWarnings("serial")
 	private static class Log4jLog implements Log, Serializable {
 
