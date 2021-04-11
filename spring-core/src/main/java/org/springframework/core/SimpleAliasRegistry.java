@@ -202,6 +202,9 @@ public class SimpleAliasRegistry implements AliasRegistry {
 	}
 
 	/**
+	 * 转换别名
+	 * 别名可能多重指向，即别名指向别名。所以需要拿到最原始的beanName
+	 *
 	 * Determine the raw name, resolving aliases to canonical names.
 	 * @param name the user-specified name
 	 * @return the transformed name

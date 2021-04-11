@@ -83,7 +83,9 @@ public abstract class BeanFactoryUtils {
 		if (!name.startsWith(BeanFactory.FACTORY_BEAN_PREFIX)) {
 			return name;
 		}
+		// java8语法, beanName=name, map.get(name)不存在, 则map.put(name, function(name))
 		return transformedBeanNameCache.computeIfAbsent(name, beanName -> {
+			// 循环处理 & 字符。比如 name = "&&&&&helloService"，最终会被转成 helloService
 			do {
 				beanName = beanName.substring(BeanFactory.FACTORY_BEAN_PREFIX.length());
 			}
