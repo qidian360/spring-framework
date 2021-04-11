@@ -584,6 +584,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 				// Check for listener beans and register them.
 				registerListeners();
 
+				// 实例化所有剩余的(非懒加载)单例
 				// Instantiate all remaining (non-lazy-init) singletons.
 				finishBeanFactoryInitialization(beanFactory);
 
@@ -921,6 +922,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		// Allow for caching all bean definition metadata, not expecting further changes.
 		beanFactory.freezeConfiguration();
 
+		// 实例化所有剩余的(非懒加载)单例
 		// Instantiate all remaining (non-lazy-init) singletons.
 		beanFactory.preInstantiateSingletons();
 	}

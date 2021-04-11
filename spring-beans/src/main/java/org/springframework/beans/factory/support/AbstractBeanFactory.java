@@ -387,6 +387,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 					 */
 					sharedInstance = getSingleton(beanName, () -> {
 						try {
+							// 创建单例bean, 参考 http://www.tianxiaobo.com/2018/06/04/Spring-IOC-%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-%E5%88%9B%E5%BB%BA%E5%8D%95%E4%BE%8B-bean/
 							return createBean(beanName, mbd, args);
 						}
 						catch (BeansException ex) {
